@@ -1,0 +1,11 @@
+extends layout
+block content
+    h1= title
+    form(action='/create', method='post', accept-charset='utf-8')
+        input(type='text', name='content')
+    each todo in todos
+        p
+            span
+                a(href='/edit/'+todo._id, title='Update this todo item')=todo.content
+            span
+                a(href='/delete/'+todo._id, title='Delete this todo item')  Delete
